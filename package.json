@@ -1,0 +1,24 @@
+{
+  "name": "coins-master-api",
+  "version": "1.0.0",
+  "description": "API for Coins Master project (FATEC)",
+  "main": "src/index.ts",
+  "author": "Maria Gabriela Reis",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/index.ts"
+  },
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "eslint": "^8.0.1",
+    "eslint-config-standard-with-typescript": "^23.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "nodemon": "^2.0.20",
+    "typescript": "*"
+  }
+}
