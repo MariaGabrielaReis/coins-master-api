@@ -66,6 +66,13 @@ class TeamController {
     const team = await TeamRepository.update(code, newTeam);
     response.json(team);
   }
+
+  async delete(request: Request, response: Response) {
+    const { code } = request.params;
+
+    await TeamRepository.delete(code);
+    response.sendStatus(204);
+  }
 }
 
 export default new TeamController();

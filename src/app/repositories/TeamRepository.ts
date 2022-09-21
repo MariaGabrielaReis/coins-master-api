@@ -53,6 +53,17 @@ class TeamRepository {
     );
     return row;
   }
+
+  async delete(code: string) {
+    const deleteOp = await dbQuery(
+      `
+      DELETE FROM teams
+      WHERE code = $1
+      `,
+      [code]
+    );
+    return deleteOp;
+  }
 }
 
 export default new TeamRepository();

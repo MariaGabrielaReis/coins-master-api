@@ -8,5 +8,6 @@ router.get("/teams", TeamController.index);
 router.post("/teams", TeamController.store);
 router.get("/teams/:code", TeamController.show);
 router.put("/teams/:code", TeamController.update);
+router.delete("/teams/:code", TeamController.delete);
 
 export default router;
