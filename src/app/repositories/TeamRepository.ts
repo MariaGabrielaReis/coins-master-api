@@ -40,6 +40,19 @@ class TeamRepository {
     );
     return row;
   }
+
+  async update(code: string, team: Team) {
+    const row = await dbQuery(
+      `
+      UPDATE teams
+      SET name = $1, code = $2, classroom = $3, habilities = $4
+      WHERE code = $5
+      RETURNING *
+      `,
+      [team.name, team.code, team.classroom, team.habilities, code]
+    );
+    return row;
+  }
 }
 
 export default new TeamRepository();

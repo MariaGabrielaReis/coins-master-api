@@ -39,6 +39,33 @@ class TeamController {
     const team = await TeamRepository.create(newTeam);
     response.json(team);
   }
+
+  async update(request: Request, response: Response) {
+    const { code } = request.params;
+    const newTeam: Team = request.body;
+
+    const teamExists = await TeamRepository.findByCode(code);
+    if (!teamExists)
+      return response.status(400).json({ error: "Team not found" });
+
+    const teamExistsByCode = await TeamRepository.findByCode(newTeam.code);
+    if (teamExistsByCode)
+      return response
+        .status(400)
+        .json({ error: `A team with this code already exists` });
+
+    if (!newTeam.name)
+      return response.status(400).json({ error: `Name is required` });
+    if (!newTeam.code)
+      return response.status(400).json({ error: `Code is required` });
+    if (!newTeam.classroom)
+      return response.status(400).json({ error: `Classroom is required` });
+    if (!newTeam.habilities)
+      return response.status(400).json({ error: `Habilities is required` });
+
+    const team = await TeamRepository.update(code, newTeam);
+    response.json(team);
+  }
 }
 
 export default new TeamController();
