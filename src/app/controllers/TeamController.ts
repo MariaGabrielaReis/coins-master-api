@@ -9,6 +9,15 @@ class TeamController {
     response.json(teams);
   }
 
+  async show(request: Request, response: Response) {
+    const { code } = request.params;
+
+    const team = await TeamRepository.findByCode(code);
+    return !team
+      ? response.status(404).json({ error: "Team not found" })
+      : response.json(team);
+  }
+
   async store(request: Request, response: Response) {
     const newTeam: Team = request.body;
 
@@ -20,6 +29,12 @@ class TeamController {
       return response.status(400).json({ error: `Classroom is required` });
     if (!newTeam.habilities)
       return response.status(400).json({ error: `Habilities is required` });
+
+    const teamExistsByCode = await TeamRepository.findByCode(newTeam.code);
+    if (teamExistsByCode)
+      return response
+        .status(400)
+        .json({ error: `A team with this code already exists` });
 
     const team = await TeamRepository.create(newTeam);
     response.json(team);

@@ -19,6 +19,17 @@ class TeamRepository {
     return rows;
   }
 
+  async findByCode(code: string) {
+    const [row] = await dbQuery(
+      `
+      SELECT * FROM teams
+      WHERE code = $1
+      `,
+      [code]
+    );
+    return row;
+  }
+
   async create(team: Team) {
     const [row] = await dbQuery(
       `

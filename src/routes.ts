@@ -6,5 +6,6 @@ const router = Router();
 
 router.get("/teams", TeamController.index);
 router.post("/teams", TeamController.store);
+router.get("/teams/:code", TeamController.show);
 
 export default router;
