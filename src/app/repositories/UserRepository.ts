@@ -1,5 +1,12 @@
 import dbQuery from "../../database";
 
+export type User = {
+  name: string;
+  photo: string;
+  team_code: string;
+  role: string;
+};
+
 class UserRepository {
   async findAll(orderBy = "ASC") {
     const direction = orderBy.toUpperCase() === "DESC" ? "DESC" : "ASC";
@@ -10,6 +17,17 @@ class UserRepository {
       `
     );
     return rows;
+  }
+
+  async create(user: User) {
+    const [row] = await dbQuery(
+      `
+      INSERT INTO users (name, photo, team_code, role)
+      VALUES ($1, $2, $3, 'Dev Team')
+      RETURNING *`,
+      [user.name, user.photo, user.team_code]
+    );
+    return row;
   }
 }
 

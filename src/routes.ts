@@ -12,5 +12,6 @@ router.put("/teams/:code", TeamController.update);
 router.delete("/teams/:code", TeamController.delete);
 
 router.get("/users", UserController.index);
+router.post("/users", UserController.store);
 
 export default router;
