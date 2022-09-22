@@ -1,6 +1,7 @@
 import { Router } from "express";
 
 import TeamController from "./app/controllers/TeamController";
+import UserController from "./app/controllers/UserController";
 
 const router = Router();
 
@@ -9,5 +10,7 @@ router.post("/teams", TeamController.store);
 router.get("/teams/:code", TeamController.show);
 router.put("/teams/:code", TeamController.update);
 router.delete("/teams/:code", TeamController.delete);
+
+router.get("/users", UserController.index);
 
 export default router;
