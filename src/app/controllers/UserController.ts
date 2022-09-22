@@ -65,6 +65,13 @@ class UserController {
     const user = await UserRepository.update(id, newUser);
     response.json(user);
   }
+
+  async delete(request: Request, response: Response) {
+    const { id } = request.params;
+
+    await UserRepository.delete(id);
+    response.sendStatus(204);
+  }
 }
 
 export default new UserController();

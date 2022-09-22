@@ -53,6 +53,17 @@ class UserRepository {
     );
     return row;
   }
+
+  async delete(code: string) {
+    const deleteOp = await dbQuery(
+      `
+      DELETE FROM users
+      WHERE id = $1
+      `,
+      [code]
+    );
+    return deleteOp;
+  }
 }
 
 export default new UserRepository();
