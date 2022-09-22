@@ -40,6 +40,19 @@ class UserRepository {
     );
     return row;
   }
+
+  async update(id: string, user: User) {
+    const row = await dbQuery(
+      `
+      UPDATE users
+      SET name = $1, photo = $2, team_code = $3, role = $4
+      WHERE id = $5
+      RETURNING *
+      `,
+      [user.name, user.photo, user.team_code, user.role, id]
+    );
+    return row;
+  }
 }
 
 export default new UserRepository();

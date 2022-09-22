@@ -38,6 +38,33 @@ class UserController {
     const user = await UserRepository.create(newUser);
     response.json(user);
   }
+
+  async update(request: Request, response: Response) {
+    const { id } = request.params;
+    const newUser: User = request.body;
+
+    const UserExists = await UserRepository.findById(id);
+    if (!UserExists)
+      return response.status(400).json({ error: "User not found" });
+
+    if (!newUser.name)
+      return response.status(400).json({ error: `Name is required` });
+    if (!newUser.team_code)
+      return response.status(400).json({ error: `Team Code is required` });
+    if (!newUser.photo)
+      return response.status(400).json({ error: `Photo is required` });
+    if (!newUser.role)
+      return response.status(400).json({ error: `Role is required` });
+
+    const TeamExistsByCode = await TeamRepository.findByCode(newUser.team_code);
+    if (!TeamExistsByCode)
+      return response
+        .status(400)
+        .json({ error: `There is no team with this code` });
+
+    const user = await UserRepository.update(id, newUser);
+    response.json(user);
+  }
 }
 
 export default new UserController();
