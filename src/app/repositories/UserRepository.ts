@@ -19,6 +19,17 @@ class UserRepository {
     return rows;
   }
 
+  async findById(id: string) {
+    const [row] = await dbQuery(
+      `
+      SELECT * FROM users
+      WHERE id = $1
+      `,
+      [id]
+    );
+    return row;
+  }
+
   async create(user: User) {
     const [row] = await dbQuery(
       `

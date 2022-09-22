@@ -10,6 +10,15 @@ class UserController {
     response.json(teams);
   }
 
+  async show(request: Request, response: Response) {
+    const { id } = request.params;
+
+    const team = await UserRepository.findById(id);
+    return !team
+      ? response.status(404).json({ error: "User not found" })
+      : response.json(team);
+  }
+
   async store(request: Request, response: Response) {
     const newUser: User = request.body;
 
