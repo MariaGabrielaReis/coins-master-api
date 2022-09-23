@@ -6,17 +6,17 @@ class UserController {
   async index(request: Request, response: Response) {
     const { orderBy } = request.params;
 
-    const teams = await UserRepository.findAll(orderBy);
-    response.json(teams);
+    const users = await UserRepository.findAll(orderBy);
+    response.json(users);
   }
 
   async show(request: Request, response: Response) {
     const { id } = request.params;
 
-    const team = await UserRepository.findById(id);
-    return !team
+    const user = await UserRepository.findById(id);
+    return !user
       ? response.status(404).json({ error: "User not found" })
-      : response.json(team);
+      : response.json(user);
   }
 
   async store(request: Request, response: Response) {
