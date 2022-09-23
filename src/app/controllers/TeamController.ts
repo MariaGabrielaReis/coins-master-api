@@ -30,8 +30,18 @@ class TeamController {
       return response.status(400).json({ error: `Code is required` });
     if (!newTeam.classroom)
       return response.status(400).json({ error: `Classroom is required` });
-    if (!newTeam.habilities)
-      return response.status(400).json({ error: `Habilities is required` });
+    if (!newTeam.habilitiy1)
+      return response.status(400).json({ error: `Hability 1 is required` });
+    if (!newTeam.habilitiy2)
+      return response.status(400).json({ error: `Hability 2 is required` });
+    if (!newTeam.habilitiy3)
+      return response.status(400).json({ error: `Hability 3 is required` });
+    if (!newTeam.habilitiy4)
+      return response.status(400).json({ error: `Hability 4 is required` });
+    if (!newTeam.habilitiy5)
+      return response.status(400).json({ error: `Hability 5 is required` });
+    if (!newTeam.coins)
+      return response.status(400).json({ error: `Coins is required` });
 
     const teamExistsByCode = await TeamRepository.findByCode(newTeam.code);
     if (teamExistsByCode)
@@ -63,8 +73,18 @@ class TeamController {
       return response.status(400).json({ error: `Code is required` });
     if (!newTeam.classroom)
       return response.status(400).json({ error: `Classroom is required` });
-    if (!newTeam.habilities)
-      return response.status(400).json({ error: `Habilities is required` });
+    if (!newTeam.habilitiy1)
+      return response.status(400).json({ error: `Hability 1 is required` });
+    if (!newTeam.habilitiy2)
+      return response.status(400).json({ error: `Hability 2 is required` });
+    if (!newTeam.habilitiy3)
+      return response.status(400).json({ error: `Hability 3 is required` });
+    if (!newTeam.habilitiy4)
+      return response.status(400).json({ error: `Hability 4 is required` });
+    if (!newTeam.habilitiy5)
+      return response.status(400).json({ error: `Hability 5 is required` });
+    if (!newTeam.coins)
+      return response.status(400).json({ error: `Coins is required` });
 
     const team = await TeamRepository.update(code, newTeam);
     response.json(team);
