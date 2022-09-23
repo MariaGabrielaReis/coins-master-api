@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import TeamRepository, { Team } from "../repositories/TeamRepository";
+import UserRepository from "../repositories/UserRepository";
 
 class TeamController {
   async index(request: Request, response: Response) {
@@ -13,9 +14,11 @@ class TeamController {
     const { code } = request.params;
 
     const team = await TeamRepository.findByCode(code);
-    return !team
-      ? response.status(404).json({ error: "Team not found" })
-      : response.json(team);
+
+    const members = await UserRepository.findByCode(code);
+    if (!team) return response.status(404).json({ error: "Team not found" });
+
+    return response.json({ team, members: members });
   }
 
   async store(request: Request, response: Response) {

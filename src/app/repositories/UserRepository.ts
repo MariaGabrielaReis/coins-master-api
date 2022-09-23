@@ -30,6 +30,17 @@ class UserRepository {
     return row;
   }
 
+  async findByCode(code: string) {
+    const rows = await dbQuery(
+      `
+      SELECT * FROM users
+      WHERE team_code = $1
+      `,
+      [code]
+    );
+    return rows;
+  }
+
   async create(user: User) {
     const [row] = await dbQuery(
       `
