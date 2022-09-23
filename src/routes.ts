@@ -19,6 +19,8 @@ router.get("/users/:id", UserController.show);
 router.put("/users/:id", UserController.update);
 router.delete("/users/:id", UserController.delete);
 
+router.post("/avaliation", AvaliationController.store);
+
 router.get("/feedbacks/:userId", FeedbackController.show);
 
 export default router;
