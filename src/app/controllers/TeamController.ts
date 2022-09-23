@@ -4,9 +4,7 @@ import UserRepository from "../repositories/UserRepository";
 
 class TeamController {
   async index(request: Request, response: Response) {
-    const { orderBy } = request.params;
-
-    const teams = await TeamRepository.findAll(orderBy);
+    const teams = await TeamRepository.findAll();
     response.json(teams);
   }
 

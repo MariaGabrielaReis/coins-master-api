@@ -8,12 +8,11 @@ export type User = {
 };
 
 class UserRepository {
-  async findAll(orderBy = "ASC") {
-    const direction = orderBy.toUpperCase() === "DESC" ? "DESC" : "ASC";
+  async findAll() {
     const rows = await dbQuery(
       `
       SELECT * FROM users
-      ORDER BY name ${direction}
+      ORDER BY name ASC
       `
     );
     return rows;
@@ -33,8 +32,9 @@ class UserRepository {
   async findByCode(code: string) {
     const rows = await dbQuery(
       `
-      SELECT * FROM users
+      SELECT id, name, photo, role  FROM users
       WHERE team_code = $1
+      ORDER BY role DESC
       `,
       [code]
     );

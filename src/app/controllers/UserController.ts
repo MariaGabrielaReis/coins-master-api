@@ -1,12 +1,11 @@
 import { Request, Response } from "express";
+import AvaliationRepository from "../repositories/AvaliationRepository";
 import TeamRepository from "../repositories/TeamRepository";
 import UserRepository, { User } from "../repositories/UserRepository";
 
 class UserController {
   async index(request: Request, response: Response) {
-    const { orderBy } = request.params;
-
-    const users = await UserRepository.findAll(orderBy);
+    const users = await UserRepository.findAll();
     response.json(users);
   }
 
@@ -14,9 +13,9 @@ class UserController {
     const { id } = request.params;
 
     const user = await UserRepository.findById(id);
-    return !user
-      ? response.status(404).json({ error: "User not found" })
-      : response.json(user);
+    if (!user) response.status(404).json({ error: "User not found" });
+    const avaliations = await AvaliationRepository.findByUser(id);
+    return response.json({ user, avaliations });
   }
 
   async store(request: Request, response: Response) {
