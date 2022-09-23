@@ -93,6 +93,9 @@ class TeamController {
   async delete(request: Request, response: Response) {
     const { code } = request.params;
 
+    const members = await UserRepository.findByCode(code);
+    if (members) await UserRepository.deleteByTeam(code);
+
     await TeamRepository.delete(code);
     response.sendStatus(204);
   }

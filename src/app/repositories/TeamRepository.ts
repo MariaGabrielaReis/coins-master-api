@@ -60,8 +60,8 @@ class TeamRepository {
     const row = await dbQuery(
       `
       UPDATE teams
-      SET name = $1, code = $2, classroom = $3, habilitiy1 = $4, habilitiy2 = $5, habilitiy3 = $6, habilitiy4 = $7, habilitiy5 = $8
-      WHERE code = $9
+      SET name = $1, code = $2, classroom = $3, habilitiy1 = $4, habilitiy2 = $5, habilitiy3 = $6, habilitiy4 = $7, habilitiy5 = $8, coins = $9
+      WHERE code = $10
       RETURNING *
       `,
       [
