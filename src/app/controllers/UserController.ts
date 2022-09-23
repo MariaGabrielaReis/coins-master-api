@@ -69,7 +69,7 @@ class UserController {
   async delete(request: Request, response: Response) {
     const { id } = request.params;
 
-    await UserRepository.delete(id);
+    await UserRepository.deleteById(id);
     response.sendStatus(204);
   }
 }

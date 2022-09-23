@@ -25,7 +25,7 @@ CREATE TABLE users (
 
 CREATE TABLE IF NOT EXISTS  avaliations (
   id UUID NOT NULL UNIQUE DEFAULT uuid_generate_v4(),
-  user_id VARCHAR NOT NULL,
+  user_id UUID NOT NULL,
   sprint INT NOT NULL,
   habilitiy1 VARCHAR NOT NULL,
   habilitiy2 VARCHAR NOT NULL,

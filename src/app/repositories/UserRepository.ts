@@ -65,13 +65,24 @@ class UserRepository {
     return row;
   }
 
-  async delete(code: string) {
+  async deleteById(id: string) {
     const deleteOp = await dbQuery(
       `
       DELETE FROM users
       WHERE id = $1
       `,
-      [code]
+      [id]
+    );
+    return deleteOp;
+  }
+
+  async deleteByTeam(teamCode: string) {
+    const deleteOp = await dbQuery(
+      `
+      DELETE FROM users
+      WHERE team_code = $1
+      `,
+      [teamCode]
     );
     return deleteOp;
   }
