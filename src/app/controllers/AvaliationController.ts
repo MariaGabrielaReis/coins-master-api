@@ -6,6 +6,17 @@ import FeedbackRepository from "../repositories/FeedbackRepository";
 import UserRepository from "../repositories/UserRepository";
 
 class AvaliationController {
+  async show(request: Request, response: Response) {
+    const { userId } = request.params;
+
+    const userExists = await UserRepository.findById(userId);
+    if (!userExists)
+      return response.status(404).json({ error: "User not found" });
+
+    const avaliation = await AvaliationRepository.findByUser(userId);
+    return response.json(avaliation);
+  }
+
   async store(request: Request, response: Response) {
     const newAvaliation: Avaliation = request.body;
 

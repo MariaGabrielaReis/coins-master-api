@@ -12,6 +12,18 @@ export type Avaliation = {
 };
 
 class AvaliationRepository {
+  async findByUser(id: string) {
+    const rows = await dbQuery(
+      `
+      SELECT * FROM avaliations
+      WHERE user_id = $1
+      ORDER BY sprint ASC
+      `,
+      [id]
+    );
+    return rows;
+  }
+
   async create(avaliation: Avaliation) {
     const [row] = await dbQuery(
       `

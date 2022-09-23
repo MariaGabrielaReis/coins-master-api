@@ -20,6 +20,7 @@ router.put("/users/:id", UserController.update);
 router.delete("/users/:id", UserController.delete);
 
 router.post("/avaliation", AvaliationController.store);
+router.get("/avaliation/:userId", AvaliationController.show);
 
 router.get("/feedbacks/:userId", FeedbackController.show);
 
