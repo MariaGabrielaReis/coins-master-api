@@ -1,6 +1,5 @@
 import { Router } from "express";
 import AvaliationController from "./app/controllers/AvaliationController";
-import FeedbackController from "./app/controllers/FeedbackController";
 
 import TeamController from "./app/controllers/TeamController";
 import UserController from "./app/controllers/UserController";
@@ -21,7 +20,5 @@ router.delete("/users/:id", UserController.delete);
 
 router.post("/avaliation", AvaliationController.store);
 router.get("/avaliation/:userId", AvaliationController.show);
-
-router.get("/feedbacks/:userId", FeedbackController.show);
 
 export default router;

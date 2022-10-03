@@ -4,11 +4,11 @@ export type Team = {
   name: string;
   code: string;
   classroom: string;
-  habilitiy1: number;
-  habilitiy2: number;
-  habilitiy3: number;
-  habilitiy4: number;
-  habilitiy5: number;
+  habilitiy1: string;
+  habilitiy2: string;
+  habilitiy3: string;
+  habilitiy4: string;
+  habilitiy5: string;
   coins: number;
 };
 
