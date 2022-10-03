@@ -41,6 +41,15 @@ class AvaliationController {
     if (!userExists)
       return response.status(400).json({ error: `User not found` });
 
+    const avaliationExists = await AvaliationRepository.findBySprint(
+      newAvaliation.userId,
+      newAvaliation.sprint
+    );
+    if (avaliationExists)
+      return response.status(400).json({
+        error: `There is already avaliation for the sprint`,
+      });
+
     const avaliation = await AvaliationRepository.create(newAvaliation);
 
     newAvaliation.feedbacks.forEach(async (feedback) => {

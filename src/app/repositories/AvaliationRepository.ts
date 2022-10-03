@@ -24,6 +24,17 @@ class AvaliationRepository {
     return rows;
   }
 
+  async findBySprint(userId: string, sprint: number) {
+    const [row] = await dbQuery(
+      `
+      SELECT * FROM avaliations
+      WHERE user_id = $1 AND sprint = $2
+      `,
+      [userId, sprint]
+    );
+    return row;
+  }
+
   async create(avaliation: Avaliation) {
     const [row] = await dbQuery(
       `
