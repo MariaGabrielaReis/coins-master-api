@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import AvaliationRepository from "../repositories/AvaliationRepository";
+import FeedbackRepository from "../repositories/FeedbackRepository";
 import TeamRepository from "../repositories/TeamRepository";
 import UserRepository, { User } from "../repositories/UserRepository";
 
@@ -14,8 +14,15 @@ class UserController {
 
     const user = await UserRepository.findById(id);
     if (!user) response.status(404).json({ error: "User not found" });
-    const avaliations = await AvaliationRepository.findByUser(id);
-    return response.json({ user, avaliations });
+
+    const feedbackDescriptions = await FeedbackRepository.findByUser(id);
+
+    const feedbacks: string[] = [];
+    feedbackDescriptions.forEach((feedbackDescription) =>
+      feedbacks.push(feedbackDescription.description)
+    );
+
+    return response.json({ user, feedbacks });
   }
 
   async store(request: Request, response: Response) {
