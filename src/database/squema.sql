@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS  teams (
   coins INT NOT NULL
 );
 
-CREATE TABLE users (
+CREATE TABLE IF NOT EXISTS users (
   id UUID NOT NULL UNIQUE DEFAULT uuid_generate_v4(),
   name VARCHAR NOT NULL,
   photo VARCHAR,

@@ -4,7 +4,7 @@ export type User = {
   name: string;
   photo: string;
   team_code: string;
-  role: string;
+  role: "Dev Team" | "Scrum Master" | "Product Owner";
 };
 
 class UserRepository {

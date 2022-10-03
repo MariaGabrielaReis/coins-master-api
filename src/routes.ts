@@ -1,6 +1,6 @@
 import { Router } from "express";
-import AvaliationController from "./app/controllers/AvaliationController";
 
+import AvaliationController from "./app/controllers/AvaliationController";
 import TeamController from "./app/controllers/TeamController";
 import UserController from "./app/controllers/UserController";
 

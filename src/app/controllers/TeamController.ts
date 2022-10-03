@@ -16,7 +16,7 @@ class TeamController {
     const members = await UserRepository.findByCode(code);
     if (!team) return response.status(404).json({ error: "Team not found" });
 
-    return response.json({ team, members: members });
+    return response.json({ team, members });
   }
 
   async store(request: Request, response: Response) {
