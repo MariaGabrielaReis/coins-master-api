@@ -1,34 +1,18 @@
 <h1 align="center"> 💰 Coins Master 💰 </h1>
 
-<p align="center" >
-  <a href="#projeto">Sobre o projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#requisitos">Como rodar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#rotas">Rotas</a>
-</p>
-
-<span id="projeto">
-
-### :bookmark_tabs: Sobre o projeto
-
-API para o projeto Coins Master (desenvolvido para a disciplina de Programação para
-Dispositivos Móveis na FATEC de São José dos Campos)
-
-- Abaixo é possível observar o modelo de dados em que o projeto foi baseado, onde existem
-  4 tabelas: equipes, usuários, avaliações e feedbacks.
+API para o projeto Coins Master (desenvolvido para a disciplina de Programação para Dispositivos Móveis na FATEC de São José dos Campos)
+- Abaixo é possível observar o modelo de dados em que o projeto foi baseado, onde existem  4 tabelas: equipes, usuários, avaliações e feedbacks.
   
 <div align="center">
 
-![drawSQL-export-2022-10-04_17_04](https://user-images.githubusercontent.com/69374340/193915381-2f57aea6-20ea-4efb-81d8-de8bac908b98.png)
+![Modelo de Dados](https://user-images.githubusercontent.com/69374340/193915381-2f57aea6-20ea-4efb-81d8-de8bac908b98.png)
 </div>
 
-#### :hammer_and_wrench: Tecnologias e ferramentas
-
+### :hammer_and_wrench: Tecnologias e ferramentas
 - TypeScript, NodeJS, Express, PostgreSQL, Insomnia
 
-<span id="requisitos">
 
-### :gear: Como rodar
-
+## :gear: Como rodar
 Antes de começar, você vai precisar ter instalado o Node.js e o Yarn (confira um tutorial
 [aqui](https://www.notion.so/Instala-o-das-ferramentas-405f3e8b014649cbb422dee6b5bd0535)),
 e para clonar esse repositório o [Git](https://git-scm.com/) também!
@@ -48,10 +32,7 @@ $ yarn dev
 
 > Use o Insomnia ou Postman, por exemplo, para simular requisições e respostas das rotas
 
-<div id="rotas">
-
-### :railway_track: Rotas
-
+## :railway_track: Rotas
 <details>
  <summary>Endpoints disponíveis para gerenciamento de <b>Equipes</b></summary>
  <br>
@@ -91,9 +72,9 @@ $ yarn dev
 
 </details>
 
-#### Estrutura de pastas
+## ⚠️ Estrutura de pastas
 
-```bash
+```
 📂 coins-master-api
 |- 📁 src
 |--- 📁 app
