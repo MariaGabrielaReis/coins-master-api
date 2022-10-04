@@ -8,23 +8,26 @@
 
 <span id="projeto">
 
-# :bookmark_tabs: Sobre o projeto
+### :bookmark_tabs: Sobre o projeto
 
 API para o projeto Coins Master (desenvolvido para a disciplina de Programação para
 Dispositivos Móveis na FATEC de São José dos Campos)
 
 - Abaixo é possível observar o modelo de dados em que o projeto foi baseado, onde existem
   4 tabelas: equipes, usuários, avaliações e feedbacks.
+  
+<div align="center">
 
-<img></img>
+![drawSQL-export-2022-10-04_17_04](https://user-images.githubusercontent.com/69374340/193915381-2f57aea6-20ea-4efb-81d8-de8bac908b98.png)
+</div>
 
-### :hammer_and_wrench: Tecnologias e ferramentas
+#### :hammer_and_wrench: Tecnologias e ferramentas
 
 - TypeScript, NodeJS, Express, PostgreSQL, Insomnia
 
 <span id="requisitos">
 
-# :gear: Como rodar
+### :gear: Como rodar
 
 Antes de começar, você vai precisar ter instalado o Node.js e o Yarn (confira um tutorial
 [aqui](https://www.notion.so/Instala-o-das-ferramentas-405f3e8b014649cbb422dee6b5bd0535)),
@@ -47,12 +50,11 @@ $ yarn dev
 
 <div id="rotas">
 
-# :railway_track: Rotas
+### :railway_track: Rotas
 
 <details>
  <summary>Endpoints disponíveis para gerenciamento de <b>Equipes</b></summary>
  <br>
-<div align="center">
 
 |                                                                    Tipo | Situação          | Caminho        |
 | ----------------------------------------------------------------------: | :---------------- | :------------- |
@@ -62,13 +64,11 @@ $ yarn dev
 |    [![](https://img.shields.io/badge/PUT-9370DB?style=for-the-badge)]() | Atualizar equipe  | `/teams/:code` |
 | [![](https://img.shields.io/badge/DELETE-CD853F?style=for-the-badge)]() | Excluir equipe    | `/teams/:code` |
 
-</div>
 </details>
 
 <details>
  <summary>Endpoints disponíveis para gerenciamento de <b>Usuários</b></summary>
  <br>
-<div align="center">
 
 |                                                                    Tipo | Situação           |   Caminho    |
 | ----------------------------------------------------------------------: | :----------------- | :----------: |
@@ -78,23 +78,20 @@ $ yarn dev
 |    [![](https://img.shields.io/badge/PUT-9370DB?style=for-the-badge)]() | Atualizar usuário  | `/users/:id` |
 | [![](https://img.shields.io/badge/DELETE-CD853F?style=for-the-badge)]() | Excluir usuário    | `/users/:id` |
 
-</div>
 </details>
 
 <details>
  <summary>Endpoints disponíveis para gerenciamento de <b>Avaliações</b></summary>
  <br>
-<div align="center">
 
 |                                                                  Tipo | Situação             | Caminho               |
 | --------------------------------------------------------------------: | :------------------- | :-------------------- |
 | [![](https://img.shields.io/badge/POST-4682B4?style=for-the-badge)]() | Criar avaliação      | `/avaliation`         |
 |  [![](https://img.shields.io/badge/GET-2E8B57?style=for-the-badge)]() | Visualizar avaliação | `/avaliation/:userId` |
 
-</div>
 </details>
 
-### Estrutura de pastas
+#### Estrutura de pastas
 
 ```bash
 📂 coins-master-api
