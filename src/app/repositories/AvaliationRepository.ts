@@ -3,11 +3,11 @@ import dbQuery from "../../database";
 export type Avaliation = {
   userId: string;
   sprint: number;
-  habilitiy1: number;
-  habilitiy2: number;
-  habilitiy3: number;
-  habilitiy4: number;
-  habilitiy5: number;
+  ability1: number;
+  ability2: number;
+  ability3: number;
+  ability4: number;
+  ability5: number;
   feedbacks: string[];
 };
 
@@ -38,17 +38,17 @@ class AvaliationRepository {
   async create(avaliation: Avaliation) {
     const [row] = await dbQuery(
       `
-      INSERT INTO avaliations (user_id, sprint, habilitiy1, habilitiy2, habilitiy3, habilitiy4, habilitiy5)
+      INSERT INTO avaliations (user_id, sprint, ability1, ability2, ability3, ability4, ability5)
       VALUES ($1, $2, $3, $4, $5, $6, $7)
       RETURNING *`,
       [
         avaliation.userId,
         avaliation.sprint,
-        avaliation.habilitiy1,
-        avaliation.habilitiy2,
-        avaliation.habilitiy3,
-        avaliation.habilitiy4,
-        avaliation.habilitiy5,
+        avaliation.ability1,
+        avaliation.ability2,
+        avaliation.ability3,
+        avaliation.ability4,
+        avaliation.ability5,
       ]
     );
     return row;

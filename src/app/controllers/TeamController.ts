@@ -28,18 +28,18 @@ class TeamController {
       return response.status(400).json({ error: `Code is required` });
     if (!newTeam.classroom)
       return response.status(400).json({ error: `Classroom is required` });
-    if (!newTeam.habilitiy1)
-      return response.status(400).json({ error: `Hability 1 is required` });
-    if (!newTeam.habilitiy2)
-      return response.status(400).json({ error: `Hability 2 is required` });
-    if (!newTeam.habilitiy3)
-      return response.status(400).json({ error: `Hability 3 is required` });
-    if (!newTeam.habilitiy4)
-      return response.status(400).json({ error: `Hability 4 is required` });
-    if (!newTeam.habilitiy5)
-      return response.status(400).json({ error: `Hability 5 is required` });
-    if (!newTeam.coins)
-      return response.status(400).json({ error: `Coins is required` });
+    if (!newTeam.ability1)
+      return response.status(400).json({ error: `Ability 1 is required` });
+    if (!newTeam.ability2)
+      return response.status(400).json({ error: `Ability 2 is required` });
+    if (!newTeam.ability3)
+      return response.status(400).json({ error: `Ability 3 is required` });
+    if (!newTeam.ability4)
+      return response.status(400).json({ error: `Ability 4 is required` });
+    if (!newTeam.ability5)
+      return response.status(400).json({ error: `Ability 5 is required` });
+    // if (!newTeam.coins)
+    //   return response.status(400).json({ error: `Coins is required` });
 
     const teamExistsByCode = await TeamRepository.findByCode(newTeam.code);
     if (teamExistsByCode)
@@ -71,16 +71,16 @@ class TeamController {
       return response.status(400).json({ error: `Code is required` });
     if (!newTeam.classroom)
       return response.status(400).json({ error: `Classroom is required` });
-    if (!newTeam.habilitiy1)
-      return response.status(400).json({ error: `Hability 1 is required` });
-    if (!newTeam.habilitiy2)
-      return response.status(400).json({ error: `Hability 2 is required` });
-    if (!newTeam.habilitiy3)
-      return response.status(400).json({ error: `Hability 3 is required` });
-    if (!newTeam.habilitiy4)
-      return response.status(400).json({ error: `Hability 4 is required` });
-    if (!newTeam.habilitiy5)
-      return response.status(400).json({ error: `Hability 5 is required` });
+    if (!newTeam.ability1)
+      return response.status(400).json({ error: `Ability 1 is required` });
+    if (!newTeam.ability2)
+      return response.status(400).json({ error: `Ability 2 is required` });
+    if (!newTeam.ability3)
+      return response.status(400).json({ error: `Ability 3 is required` });
+    if (!newTeam.ability4)
+      return response.status(400).json({ error: `Ability 4 is required` });
+    if (!newTeam.ability5)
+      return response.status(400).json({ error: `Ability 5 is required` });
     if (!newTeam.coins)
       return response.status(400).json({ error: `Coins is required` });
 

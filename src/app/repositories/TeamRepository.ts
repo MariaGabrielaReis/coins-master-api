@@ -4,11 +4,11 @@ export type Team = {
   name: string;
   code: string;
   classroom: string;
-  habilitiy1: string;
-  habilitiy2: string;
-  habilitiy3: string;
-  habilitiy4: string;
-  habilitiy5: string;
+  ability1: string;
+  ability2: string;
+  ability3: string;
+  ability4: string;
+  ability5: string;
   coins: number;
 };
 
@@ -37,19 +37,19 @@ class TeamRepository {
   async create(team: Team) {
     const [row] = await dbQuery(
       `
-      INSERT INTO teams (name, code, classroom, habilitiy1, habilitiy2, habilitiy3, habilitiy4, habilitiy5, coins)
+      INSERT INTO teams (name, code, classroom, ability1, ability2, ability3, ability4, ability5, coins)
       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
       RETURNING *`,
       [
         team.name,
         team.code,
         team.classroom,
-        team.habilitiy1,
-        team.habilitiy2,
-        team.habilitiy3,
-        team.habilitiy4,
-        team.habilitiy5,
-        team.coins,
+        team.ability1,
+        team.ability2,
+        team.ability3,
+        team.ability4,
+        team.ability5,
+        team.coins ?? 0,
       ]
     );
     return row;
@@ -59,7 +59,7 @@ class TeamRepository {
     const row = await dbQuery(
       `
       UPDATE teams
-      SET name = $1, code = $2, classroom = $3, habilitiy1 = $4, habilitiy2 = $5, habilitiy3 = $6, habilitiy4 = $7, habilitiy5 = $8, coins = $9
+      SET name = $1, code = $2, classroom = $3,ability1 = $4,ability2 = $5,ability3 = $6,ability4 = $7,ability5 = $8, coins = $9
       WHERE code = $10
       RETURNING *
       `,
@@ -67,11 +67,11 @@ class TeamRepository {
         team.name,
         team.code,
         team.classroom,
-        team.habilitiy1,
-        team.habilitiy2,
-        team.habilitiy3,
-        team.habilitiy4,
-        team.habilitiy5,
+        team.ability1,
+        team.ability2,
+        team.ability3,
+        team.ability4,
+        team.ability5,
         team.coins,
         code,
       ]
