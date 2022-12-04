@@ -5,11 +5,11 @@ API para o projeto Coins Master (desenvolvido para a disciplina de Programação
   
 <div align="center">
 
-![Modelo de Dados](https://user-images.githubusercontent.com/69374340/193915381-2f57aea6-20ea-4efb-81d8-de8bac908b98.png)
+![Modelo de Dados](https://user-images.githubusercontent.com/69374340/202428848-faf66d88-2fbd-45a8-b739-d9795643680d.png)
 </div>
 
 ### :hammer_and_wrench: Tecnologias e ferramentas
-- TypeScript, NodeJS, Express, PostgreSQL, Insomnia
+- TypeScript, NodeJS, Express, PostgreSQL, Docker, Insomnia
 
 
 ## :gear: Como rodar
