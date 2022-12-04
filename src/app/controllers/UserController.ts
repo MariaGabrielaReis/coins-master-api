@@ -32,8 +32,8 @@ class UserController {
       return response.status(400).json({ error: `Name is required` });
     if (!newUser.team_code)
       return response.status(400).json({ error: `Team Code is required` });
-    if (!newUser.photo)
-      return response.status(400).json({ error: `Photo is required` });
+    // if (!newUser.photo)
+    //   return response.status(400).json({ error: `Photo is required` });
 
     const TeamExistsByCode = await TeamRepository.findByCode(newUser.team_code);
     if (!TeamExistsByCode)

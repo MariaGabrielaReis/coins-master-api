@@ -45,9 +45,9 @@ class UserRepository {
     const [row] = await dbQuery(
       `
       INSERT INTO users (name, photo, team_code, role)
-      VALUES ($1, $2, $3, 'Dev Team')
+      VALUES ($1, $2, $3, $4)
       RETURNING *`,
-      [user.name, user.photo, user.team_code]
+      [user.name, user.photo, user.team_code, user.role]
     );
     return row;
   }
